@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the website fit properly on phones -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Happy 20th Birthday Janet ❤️</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100%;
+            margin: 0;
+        }
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            background-image:
+                linear-gradient(
+                    rgba(0,0,0,0.45),
+                    rgba(0,0,0,0.65)
+                ),
+                url("birthday.jpeg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            font-family: Arial, sans-serif;
+            text-align: center;
+
+            overflow-x: hidden;
+        }
+
+        /* Birthday Card */
+        .card {
+            width: 100%;
+            max-width: 650px;
+
+            padding: 40px 30px;
+
+            background: rgba(255,255,255,0.15);
+
+            border: 1px solid rgba(255,255,255,0.35);
+
+            border-radius: 25px;
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            color: white;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.5);
+
+            animation: appear 1.8s ease;
+        }
+
+        /* Age */
+        .age {
+            font-size: clamp(55px, 15vw, 90px);
+
+            font-weight: bold;
+
+            color: #ffd1dc;
+
+            margin: 0 0 5px;
+
+            text-shadow:
+                0 0 10px #ff4f81,
+                0 0 25px #ff4f81;
+
+            animation: pulse 2s infinite;
+        }
+
+        /* Main heading */
+        h1 {
+            font-size: clamp(30px, 8vw, 50px);
+
+            margin: 10px 0 20px;
+
+            animation: glow 2s infinite alternate;
+        }
+
+        /* Name */
+        h2 {
+            font-size: clamp(21px, 5vw, 30px);
+
+            margin: 15px 0;
+        }
+
+        /* Message */
+        p {
+            font-size: clamp(16px, 4vw, 20px);
+
+            line-height: 1.7;
+
+            margin: 15px 0;
+        }
+
+        /* Falling hearts */
+        .heart {
+            position: fixed;
+
+            top: -30px;
+
+            pointer-events: none;
+
+            z-index: 10;
+
+            animation: fall linear forwards;
+        }
+
+        /* Card animation */
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: scale(0.7) translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+
+        }
+
+        /* Heading glow */
+        @keyframes glow {
+
+            from {
+                text-shadow:
+                    0 0 5px white;
+            }
+
+            to {
+                text-shadow:
+                    0 0 10px #ff4f81,
+                    0 0 25px #ff4f81;
+            }
+
+        }
+
+        /* Age animation */
+        @keyframes pulse {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+        }
+
+        /* Hearts falling */
+        @keyframes fall {
+
+            0% {
+                transform:
+                    translateY(-30px)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translateY(110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+
+        }
+
+        /* Phone screen */
+        @media (max-width: 600px) {
+
+            body {
+                padding: 15px;
+
+                align-items: center;
+            }
+
+            .card {
+                padding: 30px 18px;
+
+                border-radius: 20px;
+            }
+
+            h1 {
+                margin: 5px 0 15px;
+            }
+
+            p {
+                line-height: 1.6;
+            }
+
+        }
+
+        /* Very small phones */
+        @media (max-width: 380px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .card {
+                padding: 25px 15px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Birthday Card -->
+
+    <div class="card">
+
+        <div class="age">
+            20
+        </div>
+
+        <h1>
+            🎉 Happy Birthday 🎂
+        </h1>
+
+        <h2>
+            ❤️ Janet Owusu Dapaah ❤️
+        </h2>
+
+        <p>
+            Today is a very special day because you are
+            celebrating <strong>20 amazing years!</strong> 🥳
+        </p>
+
+        <p>
+            May your 20th year be filled with happiness,
+            love, beautiful memories, success and
+            endless blessings.
+        </p>
+
+        <p>
+            May every dream in your heart become a reality.
+            Keep shining, keep smiling and enjoy every
+            moment of this beautiful journey. ✨
+        </p>
+
+        <h2>
+            🎁 Cheers to 20 Amazing Years! 🥳
+        </h2>
+
+    </div>
+
+
+    <!-- Falling Hearts -->
+
+    <script>
+
+        function createHeart() {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className = "heart";
+
+            heart.innerHTML = "❤️";
+
+            /* Random horizontal position */
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            /* Random size */
+            heart.style.fontSize =
+                (Math.random() * 15 + 15) + "px";
+
+            /* Random falling speed */
+            heart.style.animationDuration =
+                (Math.random() * 3 + 3) + "s";
+
+            document.body.appendChild(heart);
+
+            /* Remove heart after animation */
+            setTimeout(function() {
+
+                heart.remove();
+
+            }, 6000);
+
+        }
+
+
+        /* Create hearts every 300 milliseconds */
+
+        setInterval(createHeart, 300);
+
+    </script>
+
+</body>
+</html>
